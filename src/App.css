@@ -115,3 +115,8 @@ label {
   align-items: center;
   justify-content: space-around;
 }
+.container .left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -14,12 +14,12 @@ const NewPost = ({ image }) => {
 
     canvasRef.current.innerHtml = faceapi.createCanvasFromMedia(imgRef.current);
     faceapi.matchDimensions(canvasRef.current, {
-      width: 940,
-      height: 650,
+      width: width,
+      height: height,
     });
     const resizedVersion = faceapi.resizeResults(detections, {
-      width: 940,
-      height: 650,
+      width: width,
+      height: height,
     });
     faceapi.draw.drawDetections(canvasRef.current, resizedVersion);
     faceapi.draw.drawFaceExpressions(canvasRef.current, resizedVersion);

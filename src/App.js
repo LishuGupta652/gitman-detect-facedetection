@@ -16,7 +16,7 @@ function App() {
         setImage({
           url: img.src,
           width: img.width,
-          hegiht: img.height,
+          height: img.height,
         });
       };
     };
