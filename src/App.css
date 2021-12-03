@@ -121,7 +121,10 @@ label {
   justify-content: center;
   position: relative;
 }
-
+.container .right {
+  display: flex;
+  flex-direction: column;
+}
 .rightInput {
   padding: 20px;
 }
@@ -147,4 +150,11 @@ label {
   padding: 10px;
   border-radius: 5px;
   margin: 0 20px;
+}
+.friends {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.name {
+  font-weight: bold;
 }
