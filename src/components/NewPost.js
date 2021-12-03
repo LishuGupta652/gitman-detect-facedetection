@@ -1,7 +1,8 @@
 import { useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
 
-const NewPost = () => {
+const NewPost = ({ image }) => {
+  const { url, width, height } = image;
   const imgRef = useRef();
   const canvasRef = useRef();
 
@@ -40,17 +41,20 @@ const NewPost = () => {
     imgRef.current && loadModels();
   }, []);
   return (
-    <div>
-      <Navbar />
-      <img
-        crossOrigin="anonymous"
-        ref={imgRef}
-        src="https://raw.githubusercontent.com/LishuGupta652/web-static-content/main/lishu%20gupta%20image%2002.jpg"
-        alt="test image"
-        width="940"
-        height="650"
-      />
-      <canvas width="940" height="650" ref={canvasRef} />
+    <div className="container">
+      <div className="left" style={{ width, height }}>
+        <img crossOrigin="anonymous" ref={imgRef} src={url} />
+        <canvas width={width} height={height} ref={canvasRef} />
+      </div>
+      <div className="right">
+        <h1>Share your post</h1>
+        <input
+          type="text"
+          placeholder="What's on your mind"
+          className="rightInput"
+        />
+        <button className="rightButton">Send</button>
+      </div>
     </div>
   );
 };
