@@ -67,6 +67,14 @@ const NewPost = ({ image }) => {
           height={height}
           ref={canvasRef}
         />
+        {faces.map((face, i) => (
+          <input
+            style={{ left: face[0], top: face[1] + face[3] + 5 }}
+            placeholder="Tag a friend"
+            key={i}
+            className="friendInput"
+          />
+        ))}
       </div>
       <div className="right">
         <h1>Share your post</h1>

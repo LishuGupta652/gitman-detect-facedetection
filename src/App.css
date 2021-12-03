@@ -119,6 +119,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .rightInput {
@@ -130,5 +131,11 @@ label {
   text-transform: uppercase;
   background-color: #121212;
   color: white;
+  border: none;
+}
+.friendInput {
+  position: absolute;
+  padding: 10px;
+  font-weight: bold;
   border: none;
 }
