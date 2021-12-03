@@ -7,25 +7,29 @@ const NewPost = ({ image }) => {
   const canvasRef = useRef();
 
   const handleImage = async () => {
-    const detections = await faceapi
-      .detectAllFaces(imgRef.current, new faceapi.TinyFaceDetectorOptions())
-      .withFaceLandmarks()
-      .withFaceExpressions();
+    const detections = await faceapi.detectAllFaces(
+      imgRef.current,
+      new faceapi.TinyFaceDetectorOptions()
+    );
 
-    canvasRef.current.innerHtml = faceapi.createCanvasFromMedia(imgRef.current);
-    faceapi.matchDimensions(canvasRef.current, {
-      width: width,
-      height: height,
-    });
-    const resizedVersion = faceapi.resizeResults(detections, {
-      width: width,
-      height: height,
-    });
-    faceapi.draw.drawDetections(canvasRef.current, resizedVersion);
-    faceapi.draw.drawFaceExpressions(canvasRef.current, resizedVersion);
-    faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedVersion);
-    faceapi.draw.drawContour(canvasRef.current, resizedVersion);
     console.log(detections);
+    //   .withFaceLandmarks()
+    //   .withFaceExpressions();
+
+    // canvasRef.current.innerHtml = faceapi.createCanvasFromMedia(imgRef.current);
+    // faceapi.matchDimensions(canvasRef.current, {
+    //   width: width,
+    //   height: height,
+    // });
+    // const resizedVersion = faceapi.resizeResults(detections, {
+    //   width: width,
+    //   height: height,
+    // });
+    // faceapi.draw.drawDetections(canvasRef.current, resizedVersion);
+    // faceapi.draw.drawFaceExpressions(canvasRef.current, resizedVersion);
+    // faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedVersion);
+    // faceapi.draw.drawContour(canvasRef.current, resizedVersion);
+    // console.log(detections);
   };
   useEffect(() => {
     const loadModels = () => {

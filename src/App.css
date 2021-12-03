@@ -120,3 +120,15 @@ label {
   align-items: center;
   justify-content: center;
 }
+
+.rightInput {
+  padding: 20px;
+}
+.rightButton {
+  padding: 22px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #121212;
+  color: white;
+  border: none;
+}
