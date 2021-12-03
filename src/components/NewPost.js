@@ -89,6 +89,11 @@ const NewPost = ({ image }) => {
           placeholder="What's on your mind"
           className="rightInput "
         />
+        {friends && (
+          <span className="friends">
+            with <span className="name">{Object.values(friends) + " "}</span>
+          </span>
+        )}
         <button className="rightButton">Send</button>
       </div>
     </div>

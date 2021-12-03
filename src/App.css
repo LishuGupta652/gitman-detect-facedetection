@@ -73,7 +73,7 @@ canvas {
   font-style: 20px;
 }
 .newPostCard {
-  height: 100vh;
+  height: calc(100vh - 50px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,4 +138,13 @@ label {
   padding: 10px;
   font-weight: bold;
   border: none;
+}
+.appInput {
+  width: 100%;
+  background-color: #121212;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 20px;
 }
