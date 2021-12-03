@@ -6,6 +6,7 @@ const NewPost = ({ image }) => {
   const [faces, setFaces] = useState([]);
   const imgRef = useRef();
   const canvasRef = useRef();
+  const [friends, setFriends] = useState([]);
 
   const handleImage = async () => {
     const detections = await faceapi.detectAllFaces(
@@ -32,6 +33,10 @@ const NewPost = ({ image }) => {
     // faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedVersion);
     // faceapi.draw.drawContour(canvasRef.current, resizedVersion);
     // console.log(detections);
+  };
+
+  const addFriend = (e) => {
+    setFriends((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const enter = () => {
@@ -73,6 +78,8 @@ const NewPost = ({ image }) => {
             placeholder="Tag a friend"
             key={i}
             className="friendInput"
+            onChange={addFriend}
+            name={`input${i}`}
           />
         ))}
       </div>
