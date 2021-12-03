@@ -48,7 +48,6 @@ const NewPost = ({ image }) => {
     });
   };
 
-  console.log(faces);
   useEffect(() => {
     const loadModels = () => {
       Promise.all([
