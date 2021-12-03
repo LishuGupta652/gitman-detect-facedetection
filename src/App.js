@@ -1,6 +1,7 @@
 import "./App.css";
 import { useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
+import Navbar from "./components/Navbar";
 
 function App() {
   const imgRef = useRef();
@@ -42,6 +43,7 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <Navbar />
       <img
         crossOrigin="anonymous"
         ref={imgRef}
