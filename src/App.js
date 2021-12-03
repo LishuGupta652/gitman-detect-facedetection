@@ -42,17 +42,17 @@ function App() {
     imgRef.current && loadModels();
   }, []);
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      <img
-        crossOrigin="anonymous"
-        ref={imgRef}
-        src="https://raw.githubusercontent.com/LishuGupta652/web-static-content/main/lishu%20gupta%20image%2002.jpg"
-        alt="test image"
-        width="940"
-        height="650"
-      />
-      <canvas width="940" height="650" ref={canvasRef} />
+      <div className="newPostCard">
+        <div className="addPost">
+          <img
+            src="https://raw.githubusercontent.com/LishuGupta652/web-static-content/main/lishu%20gupta%20image%2002.jpg"
+            alt=""
+            className="avatar"
+          />
+        </div>
+      </div>
     </div>
   );
 }
