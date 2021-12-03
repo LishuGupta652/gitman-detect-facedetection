@@ -1,8 +1,9 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as faceapi from "face-api.js";
 
 const NewPost = ({ image }) => {
   const { url, width, height } = image;
+  const [faces, setFaces] = useState([]);
   const imgRef = useRef();
   const canvasRef = useRef();
 
@@ -11,6 +12,7 @@ const NewPost = ({ image }) => {
       imgRef.current,
       new faceapi.TinyFaceDetectorOptions()
     );
+    setFaces(detections.map((d) => Object.values(d.box)));
 
     console.log(detections);
     //   .withFaceLandmarks()
@@ -31,6 +33,17 @@ const NewPost = ({ image }) => {
     // faceapi.draw.drawContour(canvasRef.current, resizedVersion);
     // console.log(detections);
   };
+
+  const enter = () => {
+    const ctx = canvasRef.current.getContext("2d");
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "green";
+    faces.map((face) => {
+      ctx.strokeRect(...face);
+    });
+  };
+
+  console.log(faces);
   useEffect(() => {
     const loadModels = () => {
       Promise.all([
@@ -48,14 +61,19 @@ const NewPost = ({ image }) => {
     <div className="container">
       <div className="left" style={{ width, height }}>
         <img crossOrigin="anonymous" ref={imgRef} src={url} />
-        <canvas width={width} height={height} ref={canvasRef} />
+        <canvas
+          onMouseEnter={enter}
+          width={width}
+          height={height}
+          ref={canvasRef}
+        />
       </div>
       <div className="right">
         <h1>Share your post</h1>
         <input
           type="text"
           placeholder="What's on your mind"
-          className="rightInput"
+          className="rightInput "
         />
         <button className="rightButton">Send</button>
       </div>
