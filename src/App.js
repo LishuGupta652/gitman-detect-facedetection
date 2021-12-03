@@ -11,10 +11,18 @@ function App() {
     const getImage = () => {
       const img = new Image();
       img.src = URL.createObjectURL(file);
-      file && console.log();
+      img.onload = () => {
+        setImage({
+          url: img.src,
+          width: img.width,
+          hegiht: img.height,
+        });
+      };
     };
+    file && getImage();
   }, [file]);
 
+  console.log(image);
   return (
     <div>
       <Navbar />
