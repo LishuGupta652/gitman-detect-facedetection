@@ -91,7 +91,7 @@ const NewPost = ({ image }) => {
         />
         {friends && (
           <span className="friends">
-            with <span className="name">{Object.values(friends) + ", "}</span>
+            with <span className="name">{Object.values(friends) + " , "}</span>
           </span>
         )}
         <button className="rightButton">Send</button>
